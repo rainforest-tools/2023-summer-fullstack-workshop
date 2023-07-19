@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -32,8 +33,11 @@ class CalculateRequest(BaseModel):
   operator: OperatorEnum
   a: int
   b: int
+
+class CalculateResponse(BaseModel):
+  result: Union[int, float]
   
-@app.post("/math")
+@app.post("/math", response_model=CalculateResponse)
 async def calculate_post(request: CalculateRequest):
   operator, a, b = request.operator, request.a, request.b
   match operator:
@@ -46,4 +50,4 @@ async def calculate_post(request: CalculateRequest):
     case OperatorEnum.div:
       return {"result": a / b}
     case _:
-      return {"result": "invalid operator"}
+      raise Exception("invalid operator")

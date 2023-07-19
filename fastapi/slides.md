@@ -93,14 +93,14 @@ poetry install
 ![](/mdn-url-all.png)
 > [reference](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL)
 
-## [Path Parameters](https://fastapi.tiangolo.com/tutorial/path-params/)
+### [Path Parameters](https://fastapi.tiangolo.com/tutorial/path-params/)
 ```python
 @app.get('/operator/{operator_name}/a/{a}/b/{b}')
 async def calculate(operator: OperatorEnum, a: int, b: int):
   # calculation process with chosen opator...
 ```
 
-## [Query Parameters](https://fastapi.tiangolo.com/tutorial/query-params/)
+### [Query Parameters](https://fastapi.tiangolo.com/tutorial/query-params/)
 ```
 http://127.0.0.1:8000/math?operator={operator}&a={a}&b={b}
 ```
@@ -139,3 +139,42 @@ async def calculate(calculation: Calculation):
     case _:
       return {"result": "invalid operator"}
 ```
+
+---
+
+## [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/)
+
+```python
+class CalculateResponse(BaseModel):
+  result: Union[int, float]
+```
+
+```python
+@app.post('/math', response_model=CalculateResponse)
+async def calculate(calculation: Calculation):
+  operator, a, b = request.operator, request.a, request.b
+  match operator:
+    case OperatorEnum.add:
+      return {"result": a + b}
+    case OperatorEnum.sub:
+      return {"result": a - b}
+    case OperatorEnum.mul:
+      return {"result": a * b}
+    case OperatorEnum.div:
+      return {"result": a / b}
+    case _:
+      raise Exception("invalid operator")
+```
+
+---
+src: ./pages/chatgpt.md
+---
+---
+src: ./pages/midjourney.md
+---
+
+---
+
+# More Resources
+- TorchScript
+- ONNX
