@@ -1,0 +1,3 @@
+[submodule "rainforest-slides"]
+	path = rainforest-slides
+	url = https://github.com/rainforest-tools/rainforest-slides.git
