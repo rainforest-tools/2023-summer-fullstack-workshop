@@ -46,17 +46,27 @@ class CalculateResponse(BaseModel):
 @app.post("/math", response_model=CalculateResponse)
 async def calculate_post(request: CalculateRequest):
   operator, a, b = request.operator, request.a, request.b
-  match operator:
-    case OperatorEnum.add:
-      return {"result": a + b}
-    case OperatorEnum.sub:
-      return {"result": a - b}
-    case OperatorEnum.mul:
-      return {"result": a * b}
-    case OperatorEnum.div:
-      return {"result": a / b}
-    case _:
-      raise Exception("invalid operator")
+  # match operator:
+  #   case OperatorEnum.add:
+  #     return {"result": a + b}
+  #   case OperatorEnum.sub:
+  #     return {"result": a - b}
+  #   case OperatorEnum.mul:
+  #     return {"result": a * b}
+  #   case OperatorEnum.div:
+  #     return {"result": a / b}
+  #   case _:
+  #     raise Exception("invalid operator")
+  if operator == OperatorEnum.add:
+    return {"result": a + b}
+  elif operator == OperatorEnum.sub:
+    return {"result": a - b}
+  elif operator == OperatorEnum.mul:
+    return {"result": a * b}
+  elif operator == OperatorEnum.div:
+    return {"result": a / b}
+  else:
+    raise Exception("invalid operator")
 
 # use post method to upload image and return ai art portrait
 @app.post("/ai-art-portrait")
