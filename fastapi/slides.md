@@ -165,7 +165,9 @@ async def calculate(calculation: Calculation):
     case _:
       raise Exception("invalid operator")
 ```
-
+---
+src: ./pages/ai-art-portrait.md
+---
 ---
 src: ./pages/chatgpt.md
 ---

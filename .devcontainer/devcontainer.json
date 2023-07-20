@@ -13,7 +13,10 @@
 			"settings": {
 				"editor.tabSize": 2,
 				"terminal.integrated.defaultProfile.linux": "zsh"
-			}
+			},
+			"extensions": [
+				"ms-python.pylint"
+			]
 		}
 	}
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

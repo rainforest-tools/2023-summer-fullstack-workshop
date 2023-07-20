@@ -1,6 +1,9 @@
+from typing import Annotated, Union
 from enum import Enum
-from typing import Union
-from fastapi import FastAPI
+from io import BytesIO
+from PIL import Image
+from fastapi import FastAPI, File
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -51,3 +54,16 @@ async def calculate_post(request: CalculateRequest):
       return {"result": a / b}
     case _:
       raise Exception("invalid operator")
+
+# use post method to upload image and return ai art portrait
+@app.post("/ai-art-portrait")
+async def ai_art_portrait(file: Annotated[bytes, File()]):
+  # read image
+  image = Image.open(BytesIO(file))
+  image = image.convert("L")
+  result = BytesIO()
+  # save image
+  image.save(result, "jpeg")
+  result.seek(0)
+  # response with image
+  return StreamingResponse(result, media_type="image/jpeg")
