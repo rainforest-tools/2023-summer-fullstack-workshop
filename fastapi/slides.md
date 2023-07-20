@@ -20,12 +20,12 @@ title: FastAPI
 FastAPI framework, high performance, easy to learn, fast to code, ready for production
 
 ---
-layout: default
+layout: two-cols
 ---
 
 # Table of contents
 
-<Toc></Toc>
+<Toc colume={2}></Toc>
 
 ---
 
@@ -174,9 +174,10 @@ src: ./pages/chatgpt.md
 ---
 src: ./pages/midjourney.md
 ---
-
 ---
 
 # More Resources
 - TorchScript
 - ONNX
+- [Lightning AI](https://lightning.ai)
+- [Hugging Face](https://huggingface.co/)

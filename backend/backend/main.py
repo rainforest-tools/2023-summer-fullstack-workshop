@@ -3,10 +3,13 @@ from enum import Enum
 from io import BytesIO
 from PIL import Image
 from fastapi import FastAPI, File
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, FileResponse
 from pydantic import BaseModel
 
 app = FastAPI()
+
+from faker import Faker
+fake = Faker()
 
 @app.get("/")
 async def root():
@@ -67,3 +70,33 @@ async def ai_art_portrait(file: Annotated[bytes, File()]):
   result.seek(0)
   # response with image
   return StreamingResponse(result, media_type="image/jpeg")
+
+# post a message from user and response with fake message via faker package
+@app.post("/chatgpt")
+async def chatgpt(message: str = fake.text()):
+  return {"message": message + fake.text()}
+
+class MidjourneyRequest(BaseModel):
+  message: str
+
+# post method called midjourney
+# accept a json body with a key called "message"
+@app.post("/midjourney")
+async def midjourney(request: MidjourneyRequest):
+  message = request.message
+  # use randimage package to generate a random image
+  from randimage import get_random_image
+  random_image = get_random_image((128, 128))
+  print(random_image)
+  # save image
+  image = Image.fromarray(random_image.astype('uint8') * 255)
+  result = BytesIO()
+  image.save(result, "jpeg")
+  result.seek(0)
+  # response with image
+  return StreamingResponse(result, media_type="image/jpeg")
+
+  
+  
+
+
