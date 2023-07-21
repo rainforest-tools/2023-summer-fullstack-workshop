@@ -13,6 +13,7 @@ drawings:
   persist: false
 transition: slide-left
 title: FastAPI
+hideInToc: true
 ---
 
 # FastAPI
@@ -20,18 +21,32 @@ title: FastAPI
 FastAPI framework, high performance, easy to learn, fast to code, ready for production
 
 ---
-layout: two-cols
+hideInToc: true
 ---
 
-# Table of contents
+# Table of Contents
 
-<Toc colume={2}></Toc>
+<Toc columns="2" />
 
+---
+layout: two-cols
 ---
 
 # Web Application Architecture
 
-<img src='/web-application-architecture-diagram.png' alt='Web Application Architecture' class='h-full' />
+<img src='/web-application-architecture-diagram.png' alt='Web Application Architecture' class='w-full' />
+
+::right::
+
+- frontend or client
+  - web app
+  - mobile app
+  - edge device
+  - prompt app
+- backend
+  - APIs
+  - database
+  - storage
 
 ---
 layout: two-cols
@@ -176,8 +191,56 @@ src: ./pages/midjourney.md
 ---
 ---
 
+# Deployment
+## Dockerfile
+```dockerfile
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.11
+
+RUN apt update -y && apt install -y gcc git
+
+RUN pip3 install poetry
+RUN poetry config virtualenvs.create false
+
+WORKDIR /app
+ENV PYTHONPATH="/app:${PYTHONPATH}"
+
+COPY ./pyproject.toml ./poetry.lock /app/
+RUN poetry install --no-root --only main
+
+COPY ./backend /app/backend
+
+# uvicorn-gunicorn-fastapi
+ENV MODULE_NAME="backend.main"
+ENV VARIABLE_NAME="app"
+ENV PORT=8000
+
+# gunicorn
+ENV FORWARDED_ALLOW_IPS="*"
+```
+
+---
+
+## `docker build` and `docker run`
+
+```bash
+docker build -t backend .
+```
+
+- `-t`: tag name
+- `.`: build context. will find Dockerfile in current directory
+
+```bash
+docker run -d --name backend-app -p 3000:8000 backend
+```
+
+- `-d, --detach`: Run container in background and print container ID
+- `-p, --expose`: Expose a port or a range of ports
+
+---
+
 # More Resources
 - TorchScript
 - ONNX
 - [Lightning AI](https://lightning.ai)
 - [Hugging Face](https://huggingface.co/)
+- [roadmap.sh](https://roadmap.sh/backend)
