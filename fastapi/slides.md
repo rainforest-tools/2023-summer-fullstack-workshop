@@ -154,6 +154,7 @@ async def calculate(calculation: Calculation):
     case _:
       raise HTTPException(status_code=400, detail='Invalid operator')
 ```
+
 [Error Code](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status)
 
 ---

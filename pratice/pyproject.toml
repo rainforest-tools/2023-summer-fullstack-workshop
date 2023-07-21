@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pratice"
+version = "0.1.0"
+description = ""
+authors = ["Rainforest <rainforestnick@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["all"], version = "^0.100.0"}
+pillow = "^10.0.0"
+faker = "^19.2.0"
+randimage = "^1.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.17.4"
+yapf = "^0.40.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
