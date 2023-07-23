@@ -29,4 +29,5 @@
   - [Looping](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code)
   - [Functions](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- [React](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
 
