@@ -5,8 +5,10 @@ from PIL import Image
 from fastapi import FastAPI, File
 from fastapi.responses import StreamingResponse, FileResponse
 from pydantic import BaseModel
+from mangum import Mangum
 
 app = FastAPI()
+handler = Mangum(app)
 
 from faker import Faker
 fake = Faker()

@@ -11,6 +11,7 @@ fastapi = {extras = ["all"], version = "^0.100.0"}
 pillow = "^10.0.0"
 faker = "^19.1.0"
 randimage = "^1.2"
+mangum = "^0.17.0"
 
 
 [tool.poetry.group.dev.dependencies]
