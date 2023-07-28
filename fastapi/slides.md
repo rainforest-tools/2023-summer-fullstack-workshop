@@ -225,7 +225,8 @@ ENV FORWARDED_ALLOW_IPS="*"
 ## Dockerfile - `python:3.11`
 
 ### Prepare `requirements.txt`
-```
+
+```bash
 poetry export -f requirements.txt --output requirements.txt --without-hashes
 ```
 
@@ -297,9 +298,20 @@ docker run -d --name backend-app -p 3000:8000 backend
 
 ---
 
+## [Render](https://render.com/)
+
+1. Command
+    - [Specifying a Python Version](https://render.com/docs/python-version)
+2. Dockerfile
+3. GitHub Actions, GitHub Packages and Docker Image
+
+
+---
+
 # More Resources
 - TorchScript
 - ONNX
 - [Lightning AI](https://lightning.ai)
 - [Hugging Face](https://huggingface.co/)
 - [roadmap.sh](https://roadmap.sh/backend)
+- [Blazing fast Python Docker builds with Poetry 🏃](https://medium.com/@albertazzir/blazing-fast-python-docker-builds-with-poetry-a78a66f5aed0)
