@@ -1,5 +1,11 @@
 # 2023-summer-fullstack-workshop
 
+## Slides
+
+```bash
+npm i -g @slidev/cli
+```
+
 ## Backend
 
 - `/backend`: sample code on slides

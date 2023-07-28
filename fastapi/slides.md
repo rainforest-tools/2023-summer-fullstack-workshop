@@ -194,7 +194,7 @@ src: ./pages/midjourney.md
 ---
 
 # Deployment
-## Dockerfile
+## Dockerfile - `tiangolo/uvicorn-gunicorn-fastapi`
 ```dockerfile
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.11
 
@@ -218,6 +218,63 @@ ENV PORT=8000
 
 # gunicorn
 ENV FORWARDED_ALLOW_IPS="*"
+```
+
+---
+
+## Dockerfile - `python:3.11`
+
+### Prepare `requirements.txt`
+```
+poetry export -f requirements.txt --output requirements.txt --without-hashes
+```
+
+```dockerfile 
+FROM python:3.11
+
+WORKDIR /app
+
+COPY ./requirements.txt /app/requirements.txt
+ 
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+ 
+COPY ./backend /app/backend
+ 
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+---
+
+## Dockerfile - multi-stage build
+
+```dockerfile
+FROM python:3.11-buster as builder
+
+RUN pip install poetry
+
+ENV POETRY_NO_INTERACTION=1 \
+  POETRY_VIRTUALENVS_IN_PROJECT=1 \
+  POETRY_VIRTUALENVS_CREATE=1 \
+  POETRY_CACHE_DIR=/tmp/poetry_cache
+
+WORKDIR /app
+
+COPY pyproject.toml poetry.lock ./
+
+RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
+
+# The runtime image, used to just run the code provided its virtual environment
+FROM python:3.11-slim-buster as runtime
+
+ENV VIRTUAL_ENV=/app/.venv \
+  PATH="/app/.venv/bin:$PATH"
+
+COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
+
+COPY backend ./backend
+
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
 ```
 
 ---
