@@ -3,12 +3,26 @@ from enum import Enum
 from io import BytesIO
 from PIL import Image
 from fastapi import FastAPI, File
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
 from pydantic import BaseModel
 from mangum import Mangum
 
 app = FastAPI()
 handler = Mangum(app)
+
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 from faker import Faker
 fake = Faker()
