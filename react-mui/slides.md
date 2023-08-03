@@ -12,15 +12,18 @@ drawings:
   persist: false
 transition: slide-left
 title: React and MUI
+hideInToc: true
 ---
 
 # [React](https://react.dev) and [MUI](https://mui.com)
 
 ---
+hideInToc: true
+---
 
 # Table of Contents
 
-<Toc columns="2" />
+<Toc />
 
 ---
 
@@ -274,5 +277,3 @@ const upload = async () => {
 const blob = await response.blob();
 return URL.createObjectURL(blob);
 ```
-
----
