@@ -17,17 +17,18 @@ hideInToc: true
 
 # [React](https://react.dev) and [MUI](https://mui.com)
 
+
 ---
 hideInToc: true
 ---
 
 # Table of Contents
 
-<Toc />
+<Toc columns={1} />
 
 ---
 
-## Vite
+# Vite
 
 - JavaScript
 
@@ -45,7 +46,7 @@ npm create vite@latest [PROJECT_NAME] -- --template react-ts
 layout: two-cols
 ---
 
-### Create Project
+## Create Project
 
 ```bash
 npm create vite@latest frontend -- --template react-ts
@@ -87,7 +88,7 @@ npm run dev
 layout: two-cols
 ---
 
-## Structure of JSX/TSX
+# Structure of JSX/TSX
 an embeddable XML-like syntax. It is meant to be transformed into valid JavaScript, though the semantics of that transformation are implementation-specific.
 
 - [Hooks](https://react.dev/reference/react)
@@ -136,7 +137,7 @@ function App() {
 
 ---
 
-## [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+# [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
 - `fetch` is a Promise-based API
 - `GET` request
@@ -164,7 +165,7 @@ await fetch({
 
 ---
 
-## [CORS](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
+# [CORS](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
 
 ![CORS Error](/cors-error.png)
 
@@ -189,7 +190,7 @@ app.add_middleware(
 
 ---
 
-## Components
+# Components
 
 > React components are regular JavaScript functions, 
 > but their names must start with a **capital letter** 
@@ -224,13 +225,13 @@ const Calculator = () => {
 layout: two-cols
 ---
 
-## File Upload
+# File Upload
 
 - [FileReader](https://developer.mozilla.org/en-US/docs/Web/API/FileReader)
   - File -> dataURI
   - Response -> Blob -> ObjectURL
 
-### Pick a file
+## Pick a file
 ```tsx
 const [file, setFile] = useState<File | null>(null)
 <input type="file" onChange={(e) => setFile(e.target.files?.[0])} />
@@ -250,12 +251,13 @@ useEffect(() => {
   }
 }, [file])
 ```
+
+::right::
+
 ```tsx
 // render image
 {dataURI && <img src={dataURI} />}
 ```
-
-::right::
 
 ```tsx
 // upload file
@@ -272,7 +274,7 @@ const upload = async () => {
 }
 ```
 
-### Response to ObjectURL
+## Response to ObjectURL
 ```tsx
 const blob = await response.blob();
 return URL.createObjectURL(blob);
