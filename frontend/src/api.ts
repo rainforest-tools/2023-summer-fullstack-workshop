@@ -35,6 +35,7 @@ export const postAiArtPortrait = async (
     body: formData,
   });
   const blob = await response.blob();
+  return URL.createObjectURL(blob);
   const base64 = await new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(blob);
