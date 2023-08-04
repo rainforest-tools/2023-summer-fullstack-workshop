@@ -59,7 +59,7 @@ npm run dev
 - file structure
 
   ```
-  - react-todolist
+  - frontend/
     |- public/
     |- src/
     |- index.html
@@ -145,20 +145,19 @@ function App() {
 
 ```ts
 const params = new URLSearchParams({ operator: 'add', a: 1, b: 2 })
-await fetch({
-  method: 'GET',
-  url: `http://localhost:8000/math?${params.toString()}`,
-})
+await fetch(`http://localhost:8000/math?${params.toString()}`)
 ```
 
 - `POST` request
 
 ```ts
-await fetch({
-  method: 'POST',
-  url: 'http://localhost:8000/math',
-  body: JSON.stringify({ operator: 'add', a: 1, b: 2 }),
-})
+ const reponse = await fetch(`http://localhost:8000/math`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ operator: 'mul', a: 3, b: 2 }),
+    })
 ```
 
 > [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
