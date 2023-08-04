@@ -28,7 +28,7 @@ hideInToc: true
 
 ---
 
-# Vite
+# [Vite](https://vitejs.dev)
 
 - JavaScript
 
@@ -279,3 +279,27 @@ const upload = async () => {
 const blob = await response.blob();
 return URL.createObjectURL(blob);
 ```
+
+---
+
+# Deployment
+
+- [GitHub Pages](https://vitejs.dev/guide/static-deploy.html#github-pages)
+- [Google Firebase](https://vitejs.dev/guide/static-deploy.html#google-firebase)
+- [Netlify](http://netlify.com/)
+- [Vercel](http://vercel.com/)
+
+---
+
+# Some Useful Packages
+- Routing
+  - [React Router](https://reactrouter.com/en/main)
+- Query
+  - [React Query](https://tanstack.com/query/latest)
+  - [SWR](https://swr.vercel.app)
+  - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
+- Context
+  - [Redux Toolkit](https://redux-toolkit.js.org)
+- SSR
+  - [Next.js](http://Nextjs.org/)
+  - [Remix](https://remix.run)
