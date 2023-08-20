@@ -1,12 +1,13 @@
-import Calculator from "./components/calculator"
-import Photo from "./components/photo"
+
+import { RouterProvider } from "react-router"
+import router from "./routes"
+import { Container } from "@mui/material"
 
 function App() {
   return (
-    <>
-      <Calculator />
-      <Photo />
-    </>
+    <Container>
+      <RouterProvider router={router} />
+    </Container>
   )
 }
 

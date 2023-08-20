@@ -24,7 +24,7 @@ hideInToc: true
 
 # Table of Contents
 
-<Toc columns={1} />
+<Toc columns="2" />
 
 ---
 
@@ -302,3 +302,11 @@ return URL.createObjectURL(blob);
 - SSR
   - [Next.js](http://Nextjs.org/)
   - [Remix](https://remix.run)
+
+---
+src: ./pages/mui.md
+---
+
+---
+src: ./pages/react-router.md
+---
