@@ -1,4 +1,4 @@
-import { Container, Stack, Paper, Unstable_Grid2 as Grid, Box } from "@mui/material"
+import { Container, Stack, Paper, Unstable_Grid2 as Grid, Box, Input } from "@mui/material"
 import { Link } from "react-router-dom"
 
 const Home = () => {
@@ -34,8 +34,9 @@ const Home = () => {
             Item 2
           </Paper>
         </Grid>
-        <Grid border={1} xs={3} textAlign="center"><Paper>Item 3</Paper></Grid>
-        <Grid border={1} xs={9} textAlign="center"><Paper>Item 4</Paper></Grid>
+        <Grid border={1} xs={3} md={4} textAlign="center"><Paper>Item 3</Paper></Grid>
+        <Grid border={1} xs={9} md={4} textAlign="center"><Paper>Item 4</Paper></Grid>
+        <Grid xs={12} md={4}><Input fullWidth /></Grid>
       </Grid>
     </Container>
 
