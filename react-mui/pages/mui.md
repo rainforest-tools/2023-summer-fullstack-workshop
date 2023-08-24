@@ -21,7 +21,7 @@ yarn add @mui/material @emotion/react @emotion/styled
 
 <div class="flex gap-4 mb-4">
 
-  <img alt="Stack" src="stack-interactive-demo.png" class="w-1/2" />
+  <img alt="Stack" src="/stack-interactive-demo.png" class="w-1/2" />
 
   <div class="flex-col gap-4">
 
