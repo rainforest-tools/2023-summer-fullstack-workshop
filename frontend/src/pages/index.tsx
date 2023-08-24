@@ -1,15 +1,8 @@
-import { Container, Stack, Paper, Unstable_Grid2 as Grid, Box, Input } from "@mui/material"
-import { Link } from "react-router-dom"
+import { Stack, Paper, Unstable_Grid2 as Grid, Input, Box } from "@mui/material"
 
 const Home = () => {
   return (
-    <Container>
-      <Stack>
-        <Link to="/">Home</Link>
-        <Link to="/calculator">Calculator</Link>
-        <Link to="/photo">Photo</Link>
-
-      </Stack>
+    <>
       <h1>Home</h1>
       <Stack
         height="100px"
@@ -23,23 +16,14 @@ const Home = () => {
         <Paper>Item 2</Paper>
         <Paper>Item 3</Paper>
       </Stack>
-      <Grid container border={1} spacing={2} boxSizing="border-box">
-        <Grid border={1} xs={6} textAlign="center">
-          <Paper>
-            Item 1
-          </Paper>
-        </Grid>
-        <Grid border={1} xs={6} textAlign="center">
-          <Paper>
-            Item 2
-          </Paper>
-        </Grid>
-        <Grid border={1} xs={3} md={4} textAlign="center"><Paper>Item 3</Paper></Grid>
-        <Grid border={1} xs={9} md={4} textAlign="center"><Paper>Item 4</Paper></Grid>
-        <Grid xs={12} md={4}><Input fullWidth /></Grid>
+      <Grid container spacing={2} textAlign="center" marginTop={4}>
+        <Grid xs={2} md={6} xl={10}><Paper><Box paddingX={4} paddingY={3}>Item 1</Box></Paper></Grid>
+        <Grid xs={10} md={6} xl={2}><Paper><Box paddingX={4} paddingY={3}>Item 2</Box></Paper></Grid>
+        <Grid xs={10} md={6} xl={2}><Paper><Box paddingX={4} paddingY={3}>Item 3</Box></Paper></Grid>
+        <Grid xs={2} md={6} xl={10}><Paper><Box paddingX={4} paddingY={3}>Item 4</Box></Paper></Grid>
+        <Grid xs={12}><Input fullWidth /></Grid>
       </Grid>
-    </Container>
-
+    </>
   )
 }
 
