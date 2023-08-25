@@ -5,16 +5,18 @@ const Home = () => {
     <>
       <h1>Home</h1>
       <Stack
-        height="100px"
         border={1}
         spacing={1}
         direction="row"
-        justifyContent="end"
+        justifyContent="start"
         alignItems="center"
+        flexWrap='wrap'
+        width='100%'
+        textAlign="center"
       >
-        <Paper>Item 1</Paper>
-        <Paper>Item 2</Paper>
-        <Paper>Item 3</Paper>
+        <Box width='100%' maxWidth='30vw'><Paper><Box paddingX={4} paddingY={3}>Item 1</Box></Paper></Box>
+        <Box width='100%' maxWidth='30vw'><Paper><Box paddingX={4} paddingY={3}>Item 2</Box></Paper></Box>
+        <Box width='100%' maxWidth='30vw'><Paper><Box paddingX={4} paddingY={3}>Item 3</Box></Paper></Box>
       </Stack>
       <Grid container spacing={2} textAlign="center" marginTop={4}>
         <Grid xs={2} md={6} xl={10}><Paper><Box paddingX={4} paddingY={3}>Item 1</Box></Paper></Grid>

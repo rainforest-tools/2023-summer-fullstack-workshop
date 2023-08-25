@@ -2,11 +2,28 @@
 
 Material UI is an open-source React component library that implements Google's Material Design.
 
+<div class="flex gap-16 mb-4">
+
+<div class="flex-col">
+
 - Ship faster
 - **Beautiful by default**
 - Customizability
 - Cross-team collaboration
 - **Trusted by thousands of organizations**
+
+</div>
+
+<div class="flex-col">
+
+- [MUI System](https://mui.com/system/getting-started/)
+  - [Properties](https://mui.com/system/properties/)
+- [Base UI](https://mui.com/base-ui/)
+- [Joy UI](https://mui.com/joy-ui/getting-started/) and [Material UI](https://mui.com/material-ui/)
+
+</div>
+
+</div>
 
 ## Installation
 
