@@ -1,6 +1,6 @@
 # MUI
 
-Material UI is an open-source React component library that implements Google's Material Design.
+Material UI is an open-source React component library that implements Google's [Material Design](https://m2.material.io).
 
 <div class="flex gap-16 mb-4">
 
